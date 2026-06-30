@@ -51,11 +51,7 @@ func TestAddGetDelete(t *testing.T) {
 	require.NoError(t, err)
 
 	// проверьте, что значения всех полей в полученном объекте совпадают со значениями полей в переменной parcel
-	require.Equal(t, parcel.Number, storedParcel.Number)
-	require.Equal(t, parcel.Client, storedParcel.Client)
-	require.Equal(t, parcel.Status, storedParcel.Status)
-	require.Equal(t, parcel.Address, storedParcel.Address)
-	require.Equal(t, parcel.CreatedAt, storedParcel.CreatedAt)
+	require.Equal(t, parcel, storedParcel)
 
 	// delete
 	// удалите добавленную посылку, убедитесь в отсутствии ошибки
@@ -177,10 +173,6 @@ func TestGetByClient(t *testing.T) {
 		require.True(t, exists)
 
 		// убедитесь, что значения полей полученных посылок заполнены верно
-		require.Equal(t, expectedParcel.Number, parcel.Number)
-		require.Equal(t, expectedParcel.Client, parcel.Client)
-		require.Equal(t, expectedParcel.Status, parcel.Status)
-		require.Equal(t, expectedParcel.Address, parcel.Address)
-		require.Equal(t, expectedParcel.CreatedAt, parcel.CreatedAt)
+		require.Equal(t, expectedParcel, parcel)
 	}
 }
